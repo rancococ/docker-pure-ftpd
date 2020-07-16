@@ -78,7 +78,10 @@ ENV PUBLICHOST localhost
 # couple available volumes you may want to use
 VOLUME ["/home/ftpusers", "/etc/pure-ftpd/passwd"]
 
+EXPOSE 21 30000-30009
+
+# send sigkill
+STOPSIGNAL SIGKILL
+
 # startup
 CMD /run.sh -l puredb:/etc/pure-ftpd/pureftpd.pdb -E -j -R -P $PUBLICHOST
-
-EXPOSE 21 30000-30009
